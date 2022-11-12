@@ -2,7 +2,7 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OverviewScreen from './OverviewScreen';
 import { Ionicons } from 'react-native-vector-icons';
-import { View, StyleSheet, Text } from "react-native"
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
 const Stack = createNativeStackNavigator()
 
 const LogoTitle = () => {
@@ -20,12 +20,16 @@ const HomeScreen = () => {
           headerRight: () => (
             <View style={styles.headerIcons}>
               <View style={styles.iconContainer}>
-                <Ionicons name="notifications-outline" size={24} color="black"/>
-                <Text style={styles.badge}>1</Text>
+                <TouchableOpacity>
+                  <Ionicons name="notifications-outline" size={24} color="black"/>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text style={styles.badge}>1</Text>
+                </TouchableOpacity>
               </View>
-                <Ionicons name="cart-outline" size={24} color="black" />
+                <Ionicons name="cart-outline" size={24} color="black" style={{marginRight: 18}} />
             </View>
-          )
+          ),
         }}
       />
     </Stack.Navigator>
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
   },
   badge:{
     position: "absolute",
-    top: -4,
+    top: -25,
     right: 0,
     fontSize: 10,
     backgroundColor: "red",
@@ -50,7 +54,7 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     textAlign: "center",
-    color: "white"
+    color: "#FFFFF"
   },
   logoTitle:{
     color: "#3669C9",
